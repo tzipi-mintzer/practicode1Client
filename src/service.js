@@ -2,9 +2,10 @@ import axios from 'axios';
 import dotenv from 'dotenv'
 dotenv.config();
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+console.log(process.env.REACT_APP_API_URL);
 export default {
   getTasks: async() => {
-    console.log("get", process.env.REACT_APP_API_URL)
+    console.log("get", axios.defaults.baseURL)
     const result = await axios.get(`/items`)
     return result.data;
   },
